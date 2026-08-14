@@ -30,7 +30,8 @@
     <p>Um espaço simples, claro e acessível para aprender a navegar na internet com total autonomia, proteção e tranquilidade.</p>
     
     <div class="hero-actions">
-      <a href="#duvidas-frequentes" class="btn-help">❓ Preciso de Ajuda / Tirar Dúvida</a>
+      <!-- Botão que abre o modal de ajuda -->
+      <button class="btn-help botao-ajuda">❓ Preciso de Ajuda / Tirar Dúvida</button>
       <a href="tel:112" class="btn-emergency-top">🚨 SOS Golpe: Ligar para Emergência</a>
     </div>
   </header>
@@ -80,7 +81,7 @@
     </section>
 
     <!-- 3. SEÇÃO: DIREITOS NA INTERNET -->
-    <section id="direitos-internet" class="section-block" aria-labelledby="titulo-direitos">
+    <section id="direitos-internet" class="section-block caixa-direitos" aria-labelledby="titulo-direitos">
       <h2 id="titulo-direitos" class="section-title">⚖️ Os Seus Direitos no Ambiente Digital</h2>
       <p>Na internet, também está protegido pela lei! Conheça as principais garantias legais:</p>
 
@@ -135,7 +136,7 @@
 
     <!-- SEÇÃO DE DÚVIDAS E AJUDA RÁPIDA -->
     <section id="duvidas-frequentes" class="section-block" aria-labelledby="titulo-ajuda">
-      <h2 id="titulo-ajuda" class="section-title">❓ Perguntas Frequentes e Ajuda</h2>
+      <h2 id="titulo-ajuda" class="section-title">❓ Perguntas Frequentes</h2>
 
       <details>
         <summary>Acho que fui vítima de uma burla. O que faço agora?</summary>
@@ -156,11 +157,27 @@
 
   </main>
 
+  <!-- ESTRUTURA DO MODAL DE AJUDA -->
+  <div class="modal-fundo">
+    <div class="modal-conteudo">
+      <h2>ℹ️ Instruções de Ajuda Rápida</h2>
+      <p>Siga estes passos importantes em caso de suspeita de burla:</p>
+      <ol>
+        <li>Nunca partilhe códigos numéricos recebidos por SMS.</li>
+        <li>Desconfie de chamadas a dizer que são do seu banco a pedir palavras-passe.</li>
+        <li>Antes de realizar qualquer transferência urgente, fale com um parente de confiança.</li>
+      </ol>
+      <button class="botao-ajuda botao-fechar">Fechar</button>
+    </div>
+  </div>
+
   <!-- Rodapé do Aplicativo -->
   <footer role="contentinfo">
     <p><strong>Guia de Acessibilidade, Segurança e Direitos Digitais</strong></p>
     <p>Desenvolvido para garantir autonomia, inclusão e proteção no ambiente digital.</p>
   </footer>
 
+  <!-- Ligação para o ficheiro JavaScript externo -->
+  <script src="script.js"></script>
 </body>
 </html>
