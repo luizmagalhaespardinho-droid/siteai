@@ -1,550 +1,166 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guia de Segurança Digital para a Melhor Idade</title>
-  <style>
-    /* Reset e Variáveis de Estilo para Acessibilidade */
-    :root {
-      --bg-color: #f4f7f6;
-      --card-bg: #ffffff;
-      --primary-color: #0d47a1;
-      --primary-hover: #1565c0;
-      --accent-color: #2e7d32;
-      --warning-color: #c62828;
-      --text-main: #1a1a1a;
-      --text-muted: #424242;
-      --border-color: #cccccc;
-      --font-scale: 1rem;
-      --focus-ring: 4px solid #ffab00;
-    }
-
-    /* Suporte a Ajuste de Tamanho de Fonte Sem JavaScript (usando :target) */
-    #fonte-grande:target ~ main {
-      font-size: 1.25rem;
-    }
-    #fonte-gigante:target ~ main {
-      font-size: 1.5rem;
-    }
-    #fonte-normal:target ~ main {
-      font-size: 1rem;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.7;
-      padding-bottom: 50px;
-    }
-
-    /* Acessibilidade de Foco para Navegação por Teclado */
-    a:focus, button:focus, input:focus {
-      outline: var(--focus-ring);
-      outline-offset: 3px;
-    }
-
-    /* Barra Superior e Acessibilidade */
-    .accessibility-bar {
-      background-color: #212121;
-      color: #ffffff;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .accessibility-bar span {
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    .font-controls {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn-font {
-      background-color: #424242;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-weight: bold;
-      border: 2px solid #ffffff;
-      display: inline-block;
-    }
-
-    .btn-font:hover {
-      background-color: #616161;
-    }
-
-    /* Cabeçalho Principal */
-    header {
-      background-color: var(--primary-color);
-      color: #ffffff;
-      padding: 30px 20px;
-      text-align: center;
-      border-bottom: 5px solid #082d6c;
-    }
-
-    header h1 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2em;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* Container Principal */
-    .container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-
-    /* Navegação por Abas/Categorias (HTML Puro com :checked) */
-    .nav-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 25px;
-      flex-wrap: wrap;
-    }
-
-    .tab-link {
-      flex: 1;
-      min-width: 180px;
-      background-color: #e0e0e0;
-      color: var(--text-main);
-      padding: 15px 20px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-      border-radius: 10px;
-      border: 3px solid #bdbdbd;
-      transition: all 0.2s ease;
-    }
-
-    .tab-link:hover {
-      background-color: #d6d6d6;
-      border-color: var(--primary-color);
-    }
-
-    /* Banner Informativo */
-    .alert-banner {
-      background-color: #fff3cd;
-      border-left: 8px solid #ffc107;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-      color: #856404;
-    }
-
-    .alert-banner h2 {
-      font-size: 1.4em;
-      margin-bottom: 5px;
-    }
-
-    /* Cartões de Conteúdo e Dicas */
-    .grid-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin-bottom: 40px;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    .card-icon {
-      font-size: 2.5em;
-      line-height: 1;
-      background-color: #e3f2fd;
-      padding: 12px;
-      border-radius: 50%;
-    }
-
-    .card h3 {
-      color: var(--primary-color);
-      font-size: 1.4em;
-    }
-
-    .card ul {
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-
-    .card li {
-      margin-bottom: 10px;
-    }
-
-    /* Seção de Regra Ouro (Destaque) */
-    .golden-rules {
-      background-color: #e8f5e9;
-      border: 3px solid var(--accent-color);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 40px;
-    }
-
-    .golden-rules h2 {
-      color: var(--accent-color);
-      font-size: 1.8em;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .rule-item {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 15px;
-      align-items: flex-start;
-    }
-
-    .rule-number {
-      background-color: var(--accent-color);
-      color: #ffffff;
-      font-weight: bold;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1.2em;
-    }
-
-    /* Quiz de Prática Interativo (Apenas HTML + CSS com <details>) */
-    .quiz-section {
-      background-color: var(--card-bg);
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      padding: 30px;
-      margin-bottom: 40px;
-    }
-
-    .quiz-section h2 {
-      color: var(--primary-color);
-      font-size: 1.6em;
-      margin-bottom: 15px;
-    }
-
-    details {
-      background-color: #f9f9f9;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 15px;
-      cursor: pointer;
-    }
-
-    details[open] {
-      background-color: #ffffff;
-      border-color: var(--primary-color);
-    }
-
-    summary {
-      font-size: 1.2em;
-      font-weight: bold;
-      color: var(--text-main);
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "➕ Ver Resposta";
-      font-size: 0.9em;
-      color: var(--primary-color);
-      background-color: #e3f2fd;
-      padding: 5px 12px;
-      border-radius: 6px;
-    }
-
-    details[open] summary::after {
-      content: "➖ Ocultar";
-      background-color: #ffe0b2;
-      color: #e65100;
-    }
-
-    .answer {
-      margin-top: 15px;
-      padding-top: 15px;
-      border-top: 1px solid #e0e0e0;
-      color: var(--text-muted);
-    }
-
-    /* Botão de Emergência / Contatos */
-    .emergency-box {
-      background-color: #ffebee;
-      border: 3px solid var(--warning-color);
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-    }
-
-    .emergency-box h2 {
-      color: var(--warning-color);
-      font-size: 1.6em;
-      margin-bottom: 10px;
-    }
-
-    .emergency-box p {
-      font-size: 1.1em;
-      margin-bottom: 15px;
-    }
-
-    .btn-emergency {
-      display: inline-block;
-      background-color: var(--warning-color);
-      color: #ffffff;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      border: 2px solid #b71c1c;
-    }
-
-    .btn-emergency:hover {
-      background-color: #b71c1c;
-    }
-
-    /* Rodapé */
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background-color: #212121;
-      color: #ffffff;
-      margin-top: 40px;
-    }
-
-    footer p {
-      margin-bottom: 5px;
-    }
-
-    /* Responsividade */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.7em;
-      }
-      .tab-link {
-        min-width: 100%;
-      }
-      .accessibility-bar {
-        justify-content: center;
-      }
-    }
-  </style>
+  <title>Guia de Segurança e Direitos Digitais para Idosos</title>
+  <!-- Ligação para o ficheiro CSS externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Pontos de Ancoragem para Ajuste de Fonte via CSS -->
+  <!-- Marcadores para Ajuste do Tamanho da Fonte sem JS -->
   <div id="fonte-normal"></div>
   <div id="fonte-grande"></div>
   <div id="fonte-gigante"></div>
 
-  <!-- Barra de Acessibilidade -->
-  <div class="accessibility-bar" role="region" aria-label="Controles de Acessibilidade">
-    <span>♿ Tamanho do Texto:</span>
+  <!-- Barra Acessível de Controlo de Fonte -->
+  <div class="accessibility-bar" role="region" aria-label="Controlos de Acessibilidade">
+    <span>♿ Ajustar Tamanho do Texto:</span>
     <div class="font-controls">
-      <a href="#fonte-normal" class="btn-font" title="Tamanho Padrão">A</a>
-      <a href="#fonte-grande" class="btn-font" style="font-size: 1.2em;" title="Aumentar Texto">A+</a>
-      <a href="#fonte-gigante" class="btn-font" style="font-size: 1.4em;" title="Texto Muito Grande">A++</a>
+      <a href="#fonte-normal" class="btn-font" title="Tamanho Padrão">A (Normal)</a>
+      <a href="#fonte-grande" class="btn-font" style="font-size: 1.1em;" title="Aumentar Texto">A+ (Grande)</a>
+      <a href="#fonte-gigante" class="btn-font" style="font-size: 1.3em;" title="Texto Muito Grande">A++ (Gigante)</a>
     </div>
   </div>
 
-  <!-- Cabeçalho -->
-  <header role="banner">
-    <h1>🛡️ Guia de Segurança Digital</h1>
-    <p>Aprenda a navegar na internet com tranquilidade, proteger seus dados e evitar golpes no celular ou computador.</p>
+  <!-- 1. SEÇÃO INICIAL COM BANNER E BOTÃO DE AJUDA EM DESTAQUE -->
+  <header class="hero-banner" role="banner">
+    <h1>🛡️ Portal de Segurança e Direitos Digitais</h1>
+    <p>Um espaço simples, claro e acessível para aprender a navegar na internet com total autonomia, proteção e tranquilidade.</p>
+    
+    <div class="hero-actions">
+      <a href="#duvidas-frequentes" class="btn-help">❓ Preciso de Ajuda / Tirar Dúvida</a>
+      <a href="tel:112" class="btn-emergency-top">🚨 SOS Golpe: Ligar para Emergência</a>
+    </div>
   </header>
 
   <main class="container" role="main">
 
-    <!-- Banner de Alerta -->
-    <section class="alert-banner" aria-label="Aviso Importante">
-      <h2>💡 Lembrete Importante</h2>
-      <p>Nenhum banco ou órgão do governo solicita sua senha, código por SMS ou PIX de teste por telefone ou mensagem. Na dúvida, sempre desligue e peça ajuda a alguém de confiança!</p>
+    <!-- Navegação Rápida entre Seções -->
+    <nav class="section-nav" aria-label="Navegação Rápida">
+      <a href="#dicas-seguranca" class="nav-btn">🔒 Dicas de Segurança</a>
+      <a href="#direitos-internet" class="nav-btn">⚖️ Os Seus Direitos</a>
+      <a href="#identificar-golpes" class="nav-btn">⚠️ Como Identificar Burlas</a>
+    </nav>
+
+    <!-- 2. SEÇÃO: DICAS IMPORTANTES SOBRE SEGURANÇA DIGITAL -->
+    <section id="dicas-seguranca" class="section-block" aria-labelledby="titulo-dicas">
+      <h2 id="titulo-dicas" class="section-title">🔒 Dicas Importantes sobre Segurança Digital</h2>
+      <p>Pequenos hábitos diários ajudam a manter o seu telemóvel e o seu dinheiro seguros:</p>
+
+      <div class="cards-grid">
+        <article class="tip-card">
+          <h3>🔑 Palavras-passe Fortes e Seguras</h3>
+          <ul>
+            <li><strong>Misture palavras e números:</strong> Exemplo: <em>MinhaCasa2024!</em></li>
+            <li><strong>Nunca use:</strong> Data de nascimento, NIF ou "123456".</li>
+            <li><strong>Anote em local seguro:</strong> Se precisar de anotar, guarde num caderno em casa, fora da vista de estranhos.</li>
+          </ul>
+        </article>
+
+        <article class="tip-card">
+          <h3>📱 Proteção no WhatsApp</h3>
+          <ul>
+            <li><strong>Verificação em duas etapas:</strong> Ative um código de segurança nas definições da aplicação.</li>
+            <li><strong>Foto de perfil oculta:</strong> Deixe a sua foto visível apenas para os seus contactos.</li>
+            <li><strong>Não partilhe códigos:</strong> Se receber um SMS com números, nunca os envie a ninguém.</li>
+          </ul>
+        </article>
+
+        <article class="tip-card">
+          <h3>💳 Uso Responsável de Pagamentos</h3>
+          <ul>
+            <li><strong>Confirme tudo antes de pagar:</strong> Verifique o nome completo e a entidade antes de concluir a operação.</li>
+            <li><strong>Defina um limite baixo:</strong> Peça ao seu banco para manter um limite diário reduzido para transferências.</li>
+            <li><strong>Compras online:</strong> Prefira pagar após confirmar que a loja é confiável.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
-    <!-- Cartões com Principais Tópicos de Segurança -->
-    <section class="grid-cards" aria-label="Dicas Principais de Segurança">
+    <!-- 3. SEÇÃO: DIREITOS NA INTERNET -->
+    <section id="direitos-internet" class="section-block" aria-labelledby="titulo-direitos">
+      <h2 id="titulo-direitos" class="section-title">⚖️ Os Seus Direitos no Ambiente Digital</h2>
+      <p>Na internet, também está protegido pela lei! Conheça as principais garantias legais:</p>
 
-      <!-- Cartão 1: Golpes no WhatsApp -->
-      <article class="card">
-        <div>
-          <div class="card-header">
-            <span class="card-icon" aria-hidden="true">💬</span>
-            <h3>Golpes no WhatsApp</h3>
-          </div>
-          <p>Instruções para evitar clonagem e fotos falsas:</p>
-          <ul>
-            <li><strong>Foto de conhecido:</strong> Se um parente pedir dinheiro por um número novo, ligue para o número antigo para confirmar.</li>
-            <li><strong>Código por SMS:</strong> Nunca passe para ninguém o código de 6 dígitos que chega no seu celular.</li>
-            <li><strong>Confirmação em duas etapas:</strong> Ative essa opção nas configurações do aplicativo.</li>
-          </ul>
-        </div>
-      </article>
+      <div class="rights-box">
+        <span class="badge-law">Regulamento Geral sobre a Proteção de Dados (RGPD)</span>
+        <h3>1. Proteção dos Seus Dados Pessoais</h3>
+        <p>Empresas e sites <strong>não podem</strong> vender ou partilhar o seu nome, telemóvel ou NIF sem a sua autorização expressa. Tem o direito de exigir que eliminem os seus dados da base de dados deles.</p>
+      </div>
 
-      <!-- Cartão 2: Cuidados com o PIX -->
-      <article class="card">
-        <div>
-          <div class="card-header">
-            <span class="card-icon" aria-hidden="true">💸</span>
-            <h3>Cuidados com o PIX</h3>
-          </div>
-          <p>Como fazer pagamentos e transferências em segurança:</p>
-          <ul>
-            <li><strong>Confira o Nome:</strong> Antes de digitar a senha, leia com atenção o nome da pessoa que vai receber o dinheiro.</li>
-            <li><strong>Aviso de "Gerente":</strong> Bancos não ligam pedindo para você fazer um PIX de cancelamento.</li>
-            <li><strong>Limites diários:</strong> Mantenha um limite baixo para transferências no seu aplicativo do banco.</li>
-          </ul>
-        </div>
-      </article>
+      <div class="rights-box">
+        <span class="badge-law">Direito Digital e Privacidade</span>
+        <h3>2. Privacidade e Confidencialidade</h3>
+        <p>Garante que as suas conversas e histórico de navegação são privados. Nenhuma empresa pode invadir as suas mensagens ou expor a sua vida pessoal online.</p>
+      </div>
 
-      <!-- Cartão 3: Senhas Fortes -->
-      <article class="card">
-        <div>
-          <div class="card-header">
-            <span class="card-icon" aria-hidden="true">🔑</span>
-            <h3>Senhas Seguras</h3>
-          </div>
-          <p>Dicas para criar senhas difíceis de adivinhar:</p>
-          <ul>
-            <li><strong>Evite datas fáceis:</strong> Não use sua data de nascimento ou a sequência "123456".</li>
-            <li><strong>Frases simples:</strong> Misture palavras com números, como por exemplo: <em>CafeComLeite2024!</em></li>
-            <li><strong>Caderno seguro:</strong> Se preferir anotar suas senhas, guarde o caderno em um local seguro na sua casa.</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Cartão 4: Compras na Internet -->
-      <article class="card">
-        <div>
-          <div class="card-header">
-            <span class="card-icon" aria-hidden="true">🛒</span>
-            <h3>Compras Online</h3>
-          </div>
-          <p>Como reconhecer lojas confiáveis:</p>
-          <ul>
-            <li><strong>Endereço do site:</strong> Verifique se o endereço começa com <strong>https://</strong> e tem o desenho de um cadeado.</li>
-            <li><strong>Preços muito baixos:</strong> Desconfie de produtos famosos com preços exageradamente baratos.</li>
-            <li><strong>Cartão Virtual:</strong> Utilize o cartão virtual do seu banco para compras na internet.</li>
-          </ul>
-        </div>
-      </article>
-
+      <div class="rights-box">
+        <span class="badge-law">Lei de Defesa do Consumidor</span>
+        <h3>3. Direito ao Cancelamento nas Compras</h3>
+        <p>Comprou algo pela internet e arrependeu-se? Pela lei, tem até <strong>14 dias seguidos</strong> (a contar da receção do produto) para devolver o artigo e receber a totalidade do seu dinheiro de volta.</p>
+      </div>
     </section>
 
-    <!-- As 3 Regras de Ouro -->
-    <section class="golden-rules" aria-label="3 Regras de Ouro para sua Segurança">
-      <h2>⭐ As 3 Regras de Ouro da Segurança</h2>
-
-      <div class="rule-item">
-        <div class="rule-number">1</div>
-        <div>
-          <h3>Pare e Pense com Calma</h3>
-          <p>Golpistas sempre tentam criar urgência ("É urgente!", "Sua conta será bloqueada hoje!"). Respire fundo e não aja no impulso.</p>
-        </div>
+    <!-- 4. SEÇÃO: COMO IDENTIFICAR BURLAS NO DIA A DIA -->
+    <section id="identificar-golpes" class="section-block" aria-labelledby="titulo-golpes">
+      <h2 id="titulo-golpes" class="section-title">⚠️ Como Identificar Burlas no Dia a Dia</h2>
+      
+      <div class="scam-alert-card">
+        <h3>🚨 Regra Fundamental: Desconfie do sentimento de urgência!</h3>
+        <p>Os burlões tentam criar pânico ou pressa para impedir que pense com calma ou peça conselho a um familiar.</p>
       </div>
 
-      <div class="rule-item">
-        <div class="rule-number">2</div>
-        <div>
-          <h3>Não Clique em Links Desconhecidos</h3>
-          <p>Evite clicar em links enviados por mensagens de texto (SMS) ou WhatsApp de números estranhos.</p>
+      <div class="scam-signs">
+        <div class="sign-item">
+          <h4>📱 Burla do "Número Novo" / "Olá Pai / Olá Mãe"</h4>
+          <p>Alguém envia mensagem a dizer: <em>"Mudei de número, preciso que me faças uma transferência urgente!"</em></p>
+          <p><strong>O que fazer:</strong> Ligue imediatamente para o número antigo da pessoa para confirmar antes de fazer qualquer pagamento.</p>
         </div>
-      </div>
 
-      <div class="rule-item">
-        <div class="rule-number">3</div>
-        <div>
-          <h3>Consulte uma Pessoa de Confiança</h3>
-          <p>Ficou na dúvida? Pergunte a um familiar, vizinho ou amigo antes de realizar qualquer pagamento ou fornecer dados.</p>
+        <div class="sign-item">
+          <h4>🏦 Falsa Central do Banco</h4>
+          <p>Uma pessoa liga fingindo ser do banco e diz que houve uma compra suspeita no seu cartão, pedindo para confirmar códigos ou palavras-passe.</p>
+          <p><strong>O que fazer:</strong> Desligue o telefone imediatamente! Os bancos nunca ligam a pedir palavras-passe ou códigos por SMS.</p>
+        </div>
+
+        <div class="sign-item">
+          <h4>✉️ Links por SMS ou E-mail</h4>
+          <p>Mensagens a dizer que ganhou um prémio, que uma encomenda está retida ou que tem uma multa pendente com um link para clicar.</p>
+          <p><strong>O que fazer:</strong> Elimine a mensagem sem clicar em nenhum link.</p>
         </div>
       </div>
     </section>
 
-    <!-- Quiz de Prática (Interativo apenas com HTML) -->
-    <section class="quiz-section" aria-label="Exercícios Práticos de Teste">
-      <h2>🧠 Teste Seus Conhecimentos (Clique para ver a resposta)</h2>
+    <!-- SEÇÃO DE DÚVIDAS E AJUDA RÁPIDA -->
+    <section id="duvidas-frequentes" class="section-block" aria-labelledby="titulo-ajuda">
+      <h2 id="titulo-ajuda" class="section-title">❓ Perguntas Frequentes e Ajuda</h2>
 
       <details>
-        <summary>Recebi uma mensagem do meu filho pedindo R$ 500 por um número novo. O que devo fazer?</summary>
-        <div class="answer">
-          <p><strong>Resposta Correta:</strong> Não envie o dinheiro imediatamente! Ligue para o número de telefone antigo do seu filho ou mande uma mensagem para confirmar se realmente é ele.</p>
+        <summary>Acho que fui vítima de uma burla. O que faço agora?</summary>
+        <div class="details-content">
+          <p>1. Ligue imediatamente para o seu banco e peça o bloqueio dos seus cartões e acesso ao homebanking.</p>
+          <p>2. Avise os seus familiares para que não façam pagamentos caso recebam mensagens em seu nome.</p>
+          <p>3. Apresente uma queixa nas autoridades (PSP, GNR ou Polícia Judiciária).</p>
         </div>
       </details>
 
       <details>
-        <summary>Um SMS do banco avisa que minha conta foi bloqueada e pede para clicar num link. O que fazer?</summary>
-        <div class="answer">
-          <p><strong>Resposta Correta:</strong> Apague a mensagem! Os bancos não enviam links para desbloqueio por SMS. Se tiver dúvidas, abra o aplicativo oficial do seu banco ou ligue no número impresso no verso do seu cartão.</p>
+        <summary>Posso clicar nos links que recebo de amigos no WhatsApp?</summary>
+        <div class="details-content">
+          <p>Por vezes, os próprios amigos reencaminham links sem saber que são perigosos. Pergunte se a pessoa realmente confirmou a segurança do link antes de o abrir.</p>
         </div>
       </details>
-
-      <details>
-        <summary>Posso salvar minhas senhas em um papel e colar ao lado do computador?</summary>
-        <div class="answer">
-          <p><strong>Resposta Correta:</strong> O ideal é anotar em um caderno e guardá-lo dentro de uma gaveta ou local reservado, para que visitas ou pessoas estranhas não vejam facilmente.</p>
-        </div>
-      </details>
-    </section>
-
-    <!-- Caixa de Apoio / Emergência -->
-    <section class="emergency-box" aria-label="O que fazer em caso de golpe">
-      <h2>🚨 Foi vítima de um golpe ou está com dúvidas?</h2>
-      <p>Mantenha a calma. Avise seu banco imediatamente e faça um Boletim de Ocorrência na Polícia Civil.</p>
-      <a href="tel:190" class="btn-emergency">Ligar para a Polícia (190)</a>
     </section>
 
   </main>
 
-  <!-- Rodapé -->
-  <role footer>
-    <footer>
-      <p><strong>Guia de Acessibilidade e Segurança Digital</strong></p>
-      <p>Desenvolvido exclusivamente com HTML e CSS visando autonomia e proteção para a Terceira Idade.</p>
-    </footer>
-  </role>
+  <!-- Rodapé do Aplicativo -->
+  <footer role="contentinfo">
+    <p><strong>Guia de Acessibilidade, Segurança e Direitos Digitais</strong></p>
+    <p>Desenvolvido para garantir autonomia, inclusão e proteção no ambiente digital.</p>
+  </footer>
 
 </body>
 </html>
