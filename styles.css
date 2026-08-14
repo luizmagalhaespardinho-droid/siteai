@@ -1,23 +1,4 @@
-/* Reset e Variáveis para Acessibilidade */
-:root {
-  --bg-color: #f7f9fc;
-  --card-bg: #ffffff;
-  --primary: #0f4c81;
-  --primary-dark: #092c4d;
-  --secondary: #1b8a5a;
-  --warning: #d9381e;
-  --warning-bg: #fdf2f0;
-  --text-dark: #1a1a1a;
-  --text-muted: #333333;
-  --border: #cccccc;
-  --focus-ring: 4px solid #ff9800;
-}
-
-/* Suporte a Ajuste de Tamanho de Fonte Sem JavaScript (via :target) */
-#fonte-normal:target ~ main { font-size: 1rem; }
-#fonte-grande:target ~ main { font-size: 1.25rem; }
-#fonte-gigante:target ~ main { font-size: 1.45rem; }
-
+/* Reset básico */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,332 +7,121 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-dark);
-  line-height: 1.7;
-  padding-bottom: 60px;
+  background-color: #f7f9fc;
+  color: #1a1a1a;
+  line-height: 1.6;
+  padding-bottom: 50px;
 }
 
-/* Foco acessível para navegação por teclado */
-a:focus, button:focus, summary:focus {
-  outline: var(--focus-ring);
-  outline-offset: 3px;
-}
-
-/* Barra Superior de Acessibilidade */
-.accessibility-bar {
-  background-color: #111111;
-  color: #ffffff;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.accessibility-bar span {
-  font-weight: bold;/* Reset e Variáveis para Acessibilidade */
-:root {
-  --bg-color: #f7f9fc;
-  --card-bg: #ffffff;
-  --primary: #0f4c81;
-  --primary-dark: #092c4d;
-  --secondary: #1b8a5a;
-  --warning: #d9381e;
-  --warning-bg: #fdf2f0;
-  --text-dark: #1a1a1a;
-  --text-muted: #333333;
-  --border: #cccccc;
-  --focus-ring: 4px solid #ff9800;
-}
-
-/* Suporte a Ajuste de Tamanho de Fonte Sem JavaScript (via :target) */
-#fonte-normal:target ~ main { font-size: 1rem; }
-#fonte-grande:target ~ main { font-size: 1.25rem; }
-#fonte-gigante:target ~ main { font-size: 1.45rem; }
-
-* {
-  box-sizing: border-box;
-  font-size: 1.1rem;
-}
-
-.font-controls {
-  display: flex;
-  gap: 8px;
-}
-
-.btn-font {
-  background-color: #333333;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-weight: bold;
-  border: 2px solid #ffffff;
-  display: inline-block;
-}
-
-.btn-font:hover {
-  background-color: #555555;
-}
-
-/* Container Principal */
-.container {
-  max-width: 1050px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 1. SEÇÃO INICIAL: BANNER E BOTÃO DE AJUDA */
+/* Cabeçalho / Banner Principal */
 .hero-banner {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(135deg, #0f4c81 0%, #092c4d 100%);
   color: #ffffff;
-  padding: 40px 25px;
-  border-radius: 0 0 20px 20px;
+  padding: 40px 20px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  margin-bottom: 35px;
 }
 
 .hero-banner h1 {
-  font-size: 2.3em;
-  margin-bottom: 15px;
+  font-size: 2.2rem;
+  margin-bottom: 12px;
 }
 
 .hero-banner p {
-  font-size: 1.25em;
-  max-width: 800px;
-  margin: 0 auto 25px auto;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  margin-bottom: 24px;
 }
 
-.hero-actions {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.btn-help {
+/* Botões padronizados */
+.botao-ajuda {
   background-color: #ffcc00;
   color: #000000;
-  font-size: 1.3em;
+  font-size: 1.1rem;
   font-weight: bold;
-  text-decoration: none;
-  padding: 16px 32px;
-  border-radius: 12px;
-  border: 3px solid #b38f00;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  display: inline-block;
-  transition: transform 0.2s;
+  padding: 12px 24px;
+  border: 2px solid #b38f00;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.btn-help:hover {
+.botao-ajuda:hover {
   background-color: #ffe066;
-  transform: scale(1.03);
 }
 
-.btn-emergency-top {
-  background-color: var(--warning);
+/* Botão específico de fechar */
+.botao-fechar {
+  background-color: #d9381e;
   color: #ffffff;
-  font-size: 1.3em;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 16px 32px;
-  border-radius: 12px;
-  border: 3px solid #801303;
-  display: inline-block;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.btn-emergency-top:hover {
-  background-color: #b3240e;
-}
-
-/* Menu de Navegação Direta */
-.section-nav {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 35px;
-  flex-wrap: wrap;
-}
-
-.nav-btn {
-  flex: 1;
-  min-width: 220px;
-  background-color: #ffffff;
-  color: var(--primary);
-  border: 3px solid var(--primary);
-  padding: 14px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
-  border-radius: 10px;
-  transition: background 0.2s;
-}
-
-.nav-btn:hover {
-  background-color: #e8f1f8;
-}
-
-/* Estilos Gerais das Seções */
-.section-title {
-  font-size: 1.8em;
-  color: var(--primary-dark);
-  margin-bottom: 20px;
-  padding-bottom: 8px;
-  border-bottom: 4px solid var(--primary);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.section-block {
-  background-color: var(--card-bg);
-  border: 2px solid var(--border);
-  border-radius: 16px;
-  padding: 30px;
-  margin-bottom: 40px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
-}
-
-/* 2. SEÇÃO: DICAS IMPORTANTES DE SEGURANÇA */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  border-color: #801303;
   margin-top: 20px;
 }
 
-.tip-card {
-  background-color: #f0f7ff;
-  border: 2px solid #b8d9f7;
-  border-radius: 12px;
-  padding: 20px;
+.botao-fechar:hover {
+  background-color: #b3240e;
 }
 
-.tip-card h3 {
-  color: var(--primary);
-  font-size: 1.3em;
-  margin-bottom: 10px;
-  display: flex;
+/* Container de Conteúdo */
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Seção de Direitos na Internet (Sem interferência com o modal) */
+.caixa-direitos {
+  background-color: #ffffff;
+  border: 2px solid #cccccc;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 30px;
+}
+
+.caixa-direitos h2 {
+  color: #0f4c81;
+  margin-bottom: 12px;
+}
+
+/* ========================================================
+   ESTILOS DO MODAL (ESTRUTURA E SOBREPOSIÇÃO)
+   ======================================================== */
+
+/* Fundo escuro transparente ocupando toda a tela */
+.modal-fundo {
+  display: none; /* Inicialmente oculto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Transparência com tom escuro */
+  
+  /* Centralização do conteúdo interno */
+  justify-content: center;
   align-items: center;
-  gap: 10px;
 }
 
-.tip-card ul {
-  margin-left: 20px;
-}
-
-.tip-card li {
-  margin-bottom: 8px;
-}
-
-/* 3. SEÇÃO: DIREITOS NA INTERNET */
-.rights-box {
-  background-color: #f0fdf4;
-  border: 2px solid #a7f3d0;
+/* Caixa interna do modal */
+.modal-conteudo {
+  background-color: #ffffff;
   border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 30px;
+  max-width: 550px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
-.rights-box h3 {
-  color: var(--secondary);
-  font-size: 1.4em;
+.modal-conteudo h2 {
+  color: #0f4c81;
+  margin-bottom: 16px;
+}
+
+/* Ajuste do espaçamento interno das listas numeradas */
+ol {
+  padding-left: 40px;
+}
+
+ol li {
   margin-bottom: 10px;
-}
-
-.badge-law {
-  display: inline-block;
-  background-color: var(--secondary);
-  color: #ffffff;
-  font-weight: bold;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.9em;
-  margin-bottom: 10px;
-}
-
-/* 4. SEÇÃO: COMO IDENTIFICAR GOLPES */
-.scam-alert-card {
-  background-color: var(--warning-bg);
-  border-left: 8px solid var(--warning);
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.scam-alert-card h3 {
-  color: var(--warning);
-  font-size: 1.3em;
-  margin-bottom: 8px;
-}
-
-.scam-signs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.sign-item {
-  background-color: #ffffff;
-  border: 2px solid #f5c6cb;
-  border-radius: 10px;
-  padding: 15px;
-}
-
-.sign-item h4 {
-  color: var(--warning);
-  margin-bottom: 6px;
-}
-
-/* Caixa de Ajuda / Quiz */
-details {
-  background-color: #f8f9fa;
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
-details[open] {
-  border-color: var(--primary);
-  background-color: #ffffff;
-}
-
-summary {
-  font-size: 1.2em;
-  font-weight: bold;
-  cursor: pointer;
-  color: var(--primary-dark);
-}
-
-.details-content {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid #e0e0e0;
-}
-
-/* Rodapé */
-footer {
-  background-color: var(--primary-dark);
-  color: #ffffff;
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: 40px;
-}
-
-/* Responsividade */
-@media (max-width: 650px) {
-  .hero-banner h1 { font-size: 1.7em; }
-  .btn-help, .btn-emergency-top { width: 100%; text-align: center; }
-  .nav-btn { min-width: 100%; }
-  .accessibility-bar { justify-content: center; }
 }
